@@ -6,50 +6,76 @@ import { I18nProvider } from "./components/I18nProvider";
 import Script from "next/script";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "PLP | Home",
-  description: "PLP - Professional Learning Platform",
-  icons: {
-    icon: "/assets/images/logo.png",
-  },
+    title: "PLP | Home",
+    description: "PLP - Professional Learning Platform",
+    icons: {
+        icon: "/assets/images/logo.png",
+    },
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="zh">
-        <head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap" rel="stylesheet" />
-        <link rel="icon" href="/assets/images/logo.png" />
-        <link rel="stylesheet" href="/css/main-local.css" id="main-css" />
-        <link rel="stylesheet" href="/css/vendor/introgridsection.css" />
-        <link rel="stylesheet" href="/css/vendor/joinUs.css" />
-        <link rel="stylesheet" href="/css/vendor/purecssflipcard.css" />
-        <link rel="stylesheet" href="/css/vendor/event.css" />
-      </head>
-      <body className="lxgw-wenkai-tc-regular" style={{ backgroundColor: 'black' }}>
-        <I18nProvider>
-          <Navbar />
-          {children}
-        </I18nProvider>
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" strategy="beforeInteractive" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="beforeInteractive" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js" strategy="beforeInteractive" />
-        <Script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" strategy="beforeInteractive" />
-        <Script id="path-fixer" strategy="beforeInteractive">
-          {`
+    return (
+        <html lang="zh">
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossOrigin="anonymous"
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap"
+                    rel="stylesheet"
+                />
+                <link rel="icon" href="/assets/images/logo.png" />
+                <link
+                    rel="stylesheet"
+                    href="css/main-local.css"
+                    id="main-css"
+                />
+                <link rel="stylesheet" href="css/vendor/introgridsection.css" />
+                <link rel="stylesheet" href="css/vendor/joinUs.css" />
+                <link rel="stylesheet" href="css/vendor/purecssflipcard.css" />
+                <link rel="stylesheet" href="css/vendor/event.css" />
+            </head>
+            <body
+                className="lxgw-wenkai-tc-regular"
+                style={{ backgroundColor: "black" }}
+            >
+                <I18nProvider>
+                    <Navbar />
+                    {children}
+                </I18nProvider>
+                <Script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+                    strategy="beforeInteractive"
+                />
+                <Script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+                    strategy="beforeInteractive"
+                />
+                <Script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"
+                    strategy="beforeInteractive"
+                />
+                <Script
+                    src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"
+                    strategy="beforeInteractive"
+                />
+                <Script id="path-fixer" strategy="beforeInteractive">
+                    {`
             console.log('Path fixer script loaded');
             const isGitHubPages = window.location.hostname.includes('github.io');
             console.log('Is GitHub Pages:', isGitHubPages);
@@ -161,8 +187,8 @@ export default function RootLayout({
               setTimeout(fixPaths, 1000);
             }
           `}
-        </Script>
-      </body>
-    </html>
-  );
+                </Script>
+            </body>
+        </html>
+    );
 }

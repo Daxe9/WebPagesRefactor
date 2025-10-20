@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+const isProduction = process.env.NODE_ENV === "production";
 const nextConfig: NextConfig = {
     eslint: {
         ignoreDuringBuilds: true,
@@ -14,8 +15,8 @@ const nextConfig: NextConfig = {
         unoptimized: true,
     },
     // GitHub Pages configuration
-    basePath: "",
-    assetPrefix: "",
+    basePath: isProduction ? "/WebPagesRefactor" : "",
+    assetPrefix: isProduction ? "/WebPagesRefactor" : "",
 };
 
 export default nextConfig;
