@@ -42,13 +42,16 @@ export default function RootLayout({
                 <link rel="icon" href="/assets/images/logo.png" />
                 <link
                     rel="stylesheet"
-                    href="css/main-local.css"
+                    href="/css/main-local.css"
                     id="main-css"
                 />
-                <link rel="stylesheet" href="css/vendor/introgridsection.css" />
-                <link rel="stylesheet" href="css/vendor/joinUs.css" />
-                <link rel="stylesheet" href="css/vendor/purecssflipcard.css" />
-                <link rel="stylesheet" href="css/vendor/event.css" />
+                <link
+                    rel="stylesheet"
+                    href="/css/vendor/introgridsection.css"
+                />
+                <link rel="stylesheet" href="/css/vendor/joinUs.css" />
+                <link rel="stylesheet" href="/css/vendor/purecssflipcard.css" />
+                <link rel="stylesheet" href="/css/vendor/event.css" />
             </head>
             <body
                 className="lxgw-wenkai-tc-regular"
