@@ -1,0 +1,137 @@
+1:"$Sreact.fragment"
+2:I[4666,["619","static/chunks/619-ba102abea3e3d0e4.js","177","static/chunks/app/layout-b4fc38f54036b103.js"],"I18nProvider"]
+3:I[7799,["619","static/chunks/619-ba102abea3e3d0e4.js","177","static/chunks/app/layout-b4fc38f54036b103.js"],"default"]
+4:I[9766,[],""]
+5:I[8924,[],""]
+6:I[1402,["619","static/chunks/619-ba102abea3e3d0e4.js","177","static/chunks/app/layout-b4fc38f54036b103.js"],""]
+b:I[7150,[],""]
+:HL["/WebPagesRefactor/_next/static/css/de69da4ff7018533.css","style"]
+7:T15e8,
+            console.log('Path fixer script loaded');
+            const isGitHubPages = window.location.hostname.includes('github.io');
+            console.log('Is GitHub Pages:', isGitHubPages);
+            
+            // Intercept and fix resource requests immediately
+            if (isGitHubPages) {
+              // Override document.createElement to fix paths as elements are created
+              const originalCreateElement = document.createElement;
+              document.createElement = function(tagName) {
+                const element = originalCreateElement.call(this, tagName);
+                
+                if (tagName.toLowerCase() === 'link') {
+                  const originalSetAttribute = element.setAttribute;
+                  element.setAttribute = function(name, value) {
+                    if (name === 'href' && value && value.includes('/css/') && !value.includes('/WebPagesRefactor/')) {
+                      value = value.replace('/css/', '/WebPagesRefactor/css/');
+                      console.log('Intercepted CSS link:', value);
+                    }
+                    return originalSetAttribute.call(this, name, value);
+                  };
+                }
+                
+                if (tagName.toLowerCase() === 'img') {
+                  const originalSetAttribute = element.setAttribute;
+                  element.setAttribute = function(name, value) {
+                    if (name === 'src' && value && value.includes('/assets/') && !value.includes('/WebPagesRefactor/')) {
+                      value = value.replace('/assets/', '/WebPagesRefactor/assets/');
+                      console.log('Intercepted image src:', value);
+                    }
+                    return originalSetAttribute.call(this, name, value);
+                  };
+                }
+                
+                if (tagName.toLowerCase() === 'script') {
+                  const originalSetAttribute = element.setAttribute;
+                  element.setAttribute = function(name, value) {
+                    if (name === 'src' && value && value.includes('/_next/') && !value.includes('/WebPagesRefactor/')) {
+                      value = value.replace('/_next/', '/WebPagesRefactor/_next/');
+                      console.log('Intercepted script src:', value);
+                    }
+                    return originalSetAttribute.call(this, name, value);
+                  };
+                }
+                
+                return element;
+              };
+            }
+            
+            if (isGitHubPages) {
+              function fixPaths() {
+                console.log('Fixing paths...');
+                
+                // Fix CSS paths
+                const cssLinks = document.querySelectorAll('link[rel="stylesheet"]');
+                cssLinks.forEach((link, index) => {
+                  if (link.href && link.href.includes('/css/') && !link.href.includes('/WebPagesRefactor/')) {
+                    const oldHref = link.href;
+                    link.href = link.href.replace('/css/', '/WebPagesRefactor/css/');
+                    console.log('Fixed CSS', index, ':', oldHref, '->', link.href);
+                  }
+                });
+                
+                // Fix favicon
+                const favicons = document.querySelectorAll('link[rel="icon"]');
+                favicons.forEach((link, index) => {
+                  if (link.href && link.href.includes('/assets/') && !link.href.includes('/WebPagesRefactor/')) {
+                    const oldHref = link.href;
+                    link.href = link.href.replace('/assets/', '/WebPagesRefactor/assets/');
+                    console.log('Fixed favicon', index, ':', oldHref, '->', link.href);
+                  }
+                });
+                
+                // Fix background images
+                const elementsWithBgImage = document.querySelectorAll('[style*="background-image"]');
+                elementsWithBgImage.forEach((element, index) => {
+                  const style = element.getAttribute('style');
+                  if (style && style.includes('url(/assets/') && !style.includes('/WebPagesRefactor/')) {
+                    const oldStyle = style;
+                    const fixedStyle = style.split('url(/assets/').join('url(/WebPagesRefactor/assets/');
+                    element.setAttribute('style', fixedStyle);
+                    console.log('Fixed background image', index, ':', oldStyle, '->', fixedStyle);
+                  }
+                });
+                
+                // Fix image src
+                const images = document.querySelectorAll('img');
+                images.forEach((img, index) => {
+                  if (img.src && img.src.includes('/assets/') && !img.src.includes('/WebPagesRefactor/')) {
+                    const oldSrc = img.src;
+                    img.src = img.src.replace('/assets/', '/WebPagesRefactor/assets/');
+                    console.log('Fixed image', index, ':', oldSrc, '->', img.src);
+                  }
+                });
+              }
+              
+              // Run immediately
+              fixPaths();
+              
+              // Run after DOM is ready
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', fixPaths);
+              } else {
+                fixPaths();
+              }
+              
+              // Run after delays to catch dynamically loaded content
+              setTimeout(fixPaths, 100);
+              setTimeout(fixPaths, 500);
+              setTimeout(fixPaths, 1000);
+            }
+          0:{"P":null,"b":"67l8zChOhoFmX00eU6VSS","p":"/WebPagesRefactor","c":["","work",""],"i":false,"f":[[["",{"children":["work",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/WebPagesRefactor/_next/static/css/de69da4ff7018533.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh","children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap","rel":"stylesheet"}],["$","link",null,{"rel":"icon","href":"/assets/images/logo.png"}],["$","link",null,{"rel":"stylesheet","href":"/css/main-local.css","id":"main-css"}],["$","link",null,{"rel":"stylesheet","href":"/css/vendor/introgridsection.css"}],["$","link",null,{"rel":"stylesheet","href":"/css/vendor/joinUs.css"}],["$","link",null,{"rel":"stylesheet","href":"/css/vendor/purecssflipcard.css"}],["$","link",null,{"rel":"stylesheet","href":"/css/vendor/event.css"}]]}],["$","body",null,{"className":"lxgw-wenkai-tc-regular","style":{"backgroundColor":"black"},"children":[["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],["$","$L6",null,{"src":"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js","strategy":"beforeInteractive"}],["$","$L6",null,{"src":"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js","strategy":"beforeInteractive"}],["$","$L6",null,{"src":"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js","strategy":"beforeInteractive"}],["$","$L6",null,{"src":"https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js","strategy":"beforeInteractive"}],["$","$L6",null,{"id":"path-fixer","strategy":"beforeInteractive","children":"$7"}]]}]]}]]}],{"children":["work","$L8",{"children":["__PAGE__","$L9",{},null,false]},null,false]},null,false],"$La",false]],"m":"$undefined","G":["$b",[]],"s":false,"S":true}
+c:I[1959,[],"ClientPageRoot"]
+d:I[7137,["619","static/chunks/619-ba102abea3e3d0e4.js","246","static/chunks/app/work/page-b1c91f72174ef710.js"],"default"]
+10:I[4431,[],"OutletBoundary"]
+12:I[5278,[],"AsyncMetadataOutlet"]
+14:I[4431,[],"ViewportBoundary"]
+16:I[4431,[],"MetadataBoundary"]
+17:"$Sreact.suspense"
+8:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[["$","$Lc",null,{"Component":"$d","searchParams":{},"params":{},"promises":["$@e","$@f"]}],null,["$","$L10",null,{"children":["$L11",["$","$L12",null,{"promise":"$@13"}]]}]]}]
+a:["$","$1","h",{"children":[null,[["$","$L14",null,{"children":"$L15"}],null],["$","$L16",null,{"children":["$","div",null,{"hidden":true,"children":["$","$17",null,{"fallback":null,"children":"$L18"}]}]}]]}]
+e:{}
+f:"$9:props:children:0:props:params"
+15:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+11:null
+19:I[622,[],"IconMark"]
+13:{"metadata":[["$","title","0",{"children":"PLP | Home"}],["$","meta","1",{"name":"description","content":"PLP - Professional Learning Platform"}],["$","link","2",{"rel":"icon","href":"/assets/images/logo.png"}],["$","$L19","3",{}]],"error":null,"digest":"$undefined"}
+18:"$13:metadata"
