@@ -141,23 +141,14 @@ export default function Navbar() {
                                 >
                                     {s.rednote || "RedNote"}
                                 </a>
-                                <Link
-                                    href={getClientRoutePath("/work")}
-                                    className="dropdown-item"
-                                >
+                                <Link href="/work" className="dropdown-item">
                                     {s.sponsor || "Sponsor"}
                                 </Link>
-                                <Link
-                                    href={getClientRoutePath("/work")}
-                                    className="dropdown-item"
-                                >
+                                <Link href="/work" className="dropdown-item">
                                     {s.ourTeam || "Our Team"}
                                 </Link>
                                 <div className="dropdown-divider"></div>
-                                <Link
-                                    href={getClientRoutePath("/work")}
-                                    className="dropdown-item"
-                                >
+                                <Link href="/work" className="dropdown-item">
                                     {s.contactUs || "Contact Us"}
                                 </Link>
                             </div>
@@ -185,10 +176,7 @@ export default function Navbar() {
                             >
                                 <strong>{s.aboutUs || "About Us"}</strong>
                             </a>
-                            <Link
-                                href={getClientRoutePath("/join-us")}
-                                className="secondary-button"
-                            >
+                            <Link href="/join-us" className="secondary-button">
                                 {s.joinUs || "Join Us"}
                             </Link>
                         </div>
